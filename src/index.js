@@ -10,6 +10,7 @@ import reducers from "./store/reducers";
 import AuthProvider from "./components/AuthProvider";
 import { Router } from "react-router-dom";
 import history from "./history";
+import toast, { Toaster } from "react-hot-toast";
 
 const composeEnhancer =
   (typeof window !== "undefined" &&
@@ -27,6 +28,7 @@ root.render(
         <App />
       </AuthProvider>
     </Router>
+    <Toaster />
   </Provider>
   // </React.StrictMode>
 );

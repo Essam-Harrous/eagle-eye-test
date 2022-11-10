@@ -35,9 +35,12 @@ const SignIn = () => {
       <div className="h-[100%] flex items-center justify-center">
         <div className="w-[600px] shadow-lg py-7 rounded-[10px]">
           <h4 className="text-center">Login</h4>
-          <form onSubmit={formik.handleSubmit} class="flexf items-center mt-4">
-            <label class="block w-[75%] mx-auto">
-              <span class=" after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+          <form
+            onSubmit={formik.handleSubmit}
+            className="flexf items-center mt-4"
+          >
+            <label className="block w-[75%] mx-auto">
+              <span className=" after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                 Email
               </span>
               <input
@@ -45,12 +48,12 @@ const SignIn = () => {
                 onChange={formik.handleChange}
                 type="email"
                 name="email"
-                class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                 placeholder="you@example.com"
               />
             </label>
-            <label class="block w-[75%] mx-auto mt-5">
-              <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+            <label className="block w-[75%] mx-auto mt-5">
+              <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                 Password
               </span>
               <input
@@ -58,7 +61,7 @@ const SignIn = () => {
                 onChange={formik.handleChange}
                 type="password"
                 name="password"
-                class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                 placeholder="you@example.com"
               />
             </label>
@@ -68,8 +71,8 @@ const SignIn = () => {
               className="pointer-events-auto mt-5 w-[80px] text-center block mx-auto rounded-md bg-indigo-600 py-2 px-3 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500"
             >
               {state.isLoading ? (
-                <div class=" flex justify-center items-center">
-                  <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                <div className=" flex justify-center items-center">
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                 </div>
               ) : (
                 "Login"

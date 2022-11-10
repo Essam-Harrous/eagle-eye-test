@@ -16,8 +16,8 @@ function AuthProvider({ children }) {
   if (auth.isLoading) {
     return (
       <div>
-        <div class=" flex justify-center items-center">
-          <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-500"></div>
+        <div className=" flex justify-center items-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-500"></div>
         </div>
       </div>
     );

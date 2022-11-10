@@ -1,6 +1,7 @@
 import axios from "axios";
 // import axios from "../../api/axios";
 import history from "../../history";
+import toast from "react-hot-toast";
 
 export const SIGN_IN = "SIGN_IN";
 export const LOG_OUT = "LOG_OUT";
@@ -20,9 +21,19 @@ export const signIn = (email, password, callback) => async (dispatch) => {
     console.log(response.data, "response");
     dispatch({ type: SIGN_IN, payload: { token: response.data.access_token } });
     history.go("/dashboard");
+    toast("Login Success", {
+      style: {
+        color: "green",
+      },
+    });
   } catch (err) {
     console.log(err);
     dispatch({ type: SIGN_IN_FAILED, payload: { err: "Invalid Data" } });
+    toast("Invalid Credentials", {
+      style: {
+        color: "red",
+      },
+    });
     // callback();
   } finally {
     callback();

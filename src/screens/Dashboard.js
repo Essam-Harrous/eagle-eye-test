@@ -12,17 +12,17 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="mt-20">
       <div className="mt-5">
-        <h1 className="text-center text-xl">My Cameras</h1>
-        <div className="mt-5 shadow-sm py-4 px-4 bg-gray-100">
+        <h1 className="text-center font-bold text-4xl">My Cameras</h1>
+        <div className="mt-6 shadow-md rounded p-4 bg-gray-100">
           {err ? (
             <div>{err}</div>
-          ) : list === null ? (
-            <div class=" flex justify-center items-center my-5">
-              <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-500"></div>
+          ) : list === null || list === undefined ? (
+            <div className=" flex justify-center items-center my-5">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-500"></div>
             </div>
-          ) : list.length ? (
+          ) : list?.length ? (
             <DevicesList devices={list} />
           ) : (
             <div>No Cameras found</div>
