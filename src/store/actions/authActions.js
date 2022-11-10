@@ -1,4 +1,5 @@
-import axios from "../../api/axios";
+import axios from "axios";
+// import axios from "../../api/axios";
 import history from "../../history";
 
 export const SIGN_IN = "SIGN_IN";
@@ -10,17 +11,7 @@ export const signIn = (email, password, callback) => async (dispatch) => {
   try {
     email = "onlinedemo@cameramanager.com";
     password = "demo1234";
-    const response = await axios.post(
-      `/oauth/token?grant_type=password&scope=write&username=${email}&password=${password}`,
-      undefined,
-      {
-        headers: {
-          Authorization:
-            "Basic ZGV2X3Rlc3Q6M0gxQmY2bUNjdElncEN1enZybnlla2YzVmhBVUVuS0o=",
-        },
-        Accept: "application/json",
-      }
-    );
+    const response = await axios.get(`/.netlify/functions/login`);
     localStorage.setItem("token", response.data.access_token);
     localStorage.setItem("refresh-token", response.data.refresh_token);
     history.replace("/home");
