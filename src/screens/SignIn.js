@@ -22,7 +22,7 @@ const SignIn = () => {
     onSubmit: (values) => {
       setState((prev) => ({ ...state, isLoading: true }));
       dispatch(
-        signIn(values, () => {
+        signIn(values.email, values.password, () => {
           setState((prev) => ({ ...state, isLoading: false }));
         })
       );
@@ -64,9 +64,16 @@ const SignIn = () => {
             </label>
             <button
               type="submit"
+              disabled={state.isLoading}
               className="pointer-events-auto mt-5 w-[80px] text-center block mx-auto rounded-md bg-indigo-600 py-2 px-3 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500"
             >
-              Login
+              {state.isLoading ? (
+                <div class=" flex justify-center items-center">
+                  <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                </div>
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
         </div>

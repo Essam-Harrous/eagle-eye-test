@@ -12,11 +12,12 @@ function AuthProvider({ children }) {
     dispatch(verifyToken());
   }, []);
 
+  console.log(auth, "auth");
   if (auth.isLoading) {
     return (
       <div>
-        <div className="d-flex justify-content-center">
-          <h1>Loading</h1>
+        <div class=" flex justify-center items-center">
+          <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-500"></div>
         </div>
       </div>
     );
@@ -27,7 +28,6 @@ function AuthProvider({ children }) {
   } else {
     return (
       <>
-        {/* <Route path="/" exact render={({history}) => history.replace('/signin')} /> */}
         <Route path="/signin" component={SignIn} />
       </>
     );
