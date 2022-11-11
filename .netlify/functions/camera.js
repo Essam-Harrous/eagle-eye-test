@@ -19,11 +19,15 @@ exports.handler = async (event, context) => {
     });
     const cameraStatus = statusRes.data;
 
-    const headers = new Headers();
-    headers.set("Authorization", `bearer ${body.token}`);
+    // const headers = new Headers();
+    // headers.set("Authorization", );
     let snapshot = await fetch(
       `http://rest.cameramanager.com/rest/v2.4/cameras/${body.id}/snapshot?resolution=1000x100&includeTimestamp=false`,
-      { headers }
+      {
+        headers: {
+          Authorization: `bearer ${body.token}`,
+        },
+      }
     );
 
     // Convert the data to Base64 and build a data URL.
