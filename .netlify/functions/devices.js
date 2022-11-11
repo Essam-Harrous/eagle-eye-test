@@ -1,5 +1,4 @@
 const { default: axios } = require("../../src/api/axios");
-const fetch = require("node-fetch");
 
 exports.handler = async (event, context) => {
   console.log("get devices", JSON.parse(event.body));
@@ -20,27 +19,24 @@ exports.handler = async (event, context) => {
     });
     const camerasStatus = statusRes.data;
 
-    console.log(cameras, "ressssss");
     let result = [];
 
-    // const headers = new Headers();
-    // headers.set("Authorization", `bearer ${body.token}`);
-
     for (let i = 0; i < cameras.length && camerasStatus.length; i++) {
-      let snapshot = await fetch(
-        `http://rest.cameramanager.com/rest/v2.4/cameras/${cameras[i].cameraId}/snapshot?resolution=1000x100&includeTimestamp=false`,
+      let snapshot = await axios(
+        `/rest/v2.4/cameras/${cameras[i].cameraId}/snapshot?resolution=1000x100&includeTimestamp=false`,
         {
           headers: {
             Authorization: `bearer ${body.token}`,
           },
+          responseType: "arraybuffer",
         }
       );
-
+      console.log(snapshot, "snaaaaaaap");
       // Convert the data to Base64 and build a data URL.
-      const binaryData = await snapshot.arrayBuffer();
+      const binaryData = snapshot.data;
       const base64 = arrayBufferToBase64(binaryData);
       const dataUrl = `data:image/png;base64,${base64}`;
-
+      console.log("data url, ");
       result.push({ ...cameras[i], ...camerasStatus[i], imageUrl: dataUrl });
     }
 
