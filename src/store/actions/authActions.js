@@ -10,8 +10,6 @@ export const TOKEN_EXPIRED = "TOKEN_EXPIRED";
 
 export const signIn = (email, password, callback) => async (dispatch) => {
   try {
-    // email = "onlinedemo@cameramanager.com";
-    // password = "demo1234";
     const response = await axios.post(`/.netlify/functions/login`, {
       email,
       password,

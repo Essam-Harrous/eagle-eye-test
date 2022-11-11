@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Device = ({ device }) => {
   return (
     <Link to={"/camera/" + device.cameraId}>
-      <div className="w-[550px] rounded-[15px] overflow-hidden bg-white my-3">
-        <div className="relative overflow-hidden w-[550px] h-[290px]">
-          <img src={device.imageUrl} width={550} />
+      <div className="w-[600px] rounded-[15px] overflow-hidden bg-white my-3">
+        <div className="relative overflow-hidden h-[340px]">
+          <img src={device.imageUrl} style={{ width: "100%" }} />
           <div
             style={{
               background:

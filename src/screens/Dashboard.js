@@ -15,7 +15,7 @@ const Dashboard = () => {
     <div className="mt-20">
       <div className="mt-5">
         <h1 className="text-center font-bold text-4xl">My Cameras</h1>
-        <div className="mt-6 shadow-md rounded p-4 bg-gray-100">
+        <div className="mt-6 shadow-md rounded p-4 bg-[#F0F1F1]">
           {err ? (
             <div>{err}</div>
           ) : list === null || list === undefined ? (

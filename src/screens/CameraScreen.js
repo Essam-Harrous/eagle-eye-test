@@ -20,13 +20,13 @@ const CameraScreen = ({ match }) => {
         <h1 className="text-center text-4xl font-bold">
           {camera && camera.name}
         </h1>
-        <div className="mt-14 shadow-md rounded py-4 px-4 bg-gray-100 w-full mx-auto">
+        <div className="mt-14 shadow-md rounded py-4 px-4 bg-[#F0F1F1] w-full mx-auto">
           {errCamera ? (
             <div>{errCamera}</div>
           ) : camera ? (
             <div>
               <div className="flex mt-2 items-center  flex-wrap-reverse justify-center">
-                <div>
+                <div className="">
                   <div className="flex justify-between my-2">
                     <div className="flex mx-3 mt-3 bg-[#C1DDFC] py-2 px-3 min-w-[200px] rounded items-center">
                       <p className="text-[12px] my-1 font-bold mr-1 text-[#434242]">
@@ -113,7 +113,7 @@ const CameraScreen = ({ match }) => {
                   </div>
                 </div>
                 <div className=" my-5 overflow-hidden rounded-lg">
-                  <div className="relative overflow-hidden w-[650px] h-[370px]">
+                  <div className="relative overflow-hidden w-full max-h-[370px]">
                     <img src={camera.imageUrl} width={700} />
                     <div
                       style={{

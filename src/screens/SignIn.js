@@ -34,7 +34,10 @@ const SignIn = () => {
     <div className="container mx-auto h-[100vh]">
       <div className="h-[100%] flex items-center justify-center">
         <div className="w-[600px] shadow-lg py-7 rounded-[10px]">
-          <h4 className="text-center">Login</h4>
+          <div className="mt-5 mb-7 flex justify-center">
+            <img src="https://auth.cameramanager.com/auth/assets/cameramanager-logo.png" />
+          </div>
+          <h4 className="text-center">Web App</h4>
           <form
             onSubmit={formik.handleSubmit}
             className="flexf items-center mt-4"
@@ -62,7 +65,7 @@ const SignIn = () => {
                 type="password"
                 name="password"
                 className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                placeholder="you@example.com"
+                placeholder="password"
               />
             </label>
             <button
