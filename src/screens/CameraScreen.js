@@ -25,7 +25,7 @@ const CameraScreen = ({ match }) => {
             <div>{errCamera}</div>
           ) : camera ? (
             <div>
-              <div className="flex mt-2 items-center ">
+              <div className="flex mt-2 items-center  flex-wrap-reverse justify-center">
                 <div>
                   <div className="flex justify-between my-2">
                     <div className="flex mx-3 mt-3 bg-[#C1DDFC] py-2 px-3 min-w-[200px] rounded items-center">
@@ -112,7 +112,7 @@ const CameraScreen = ({ match }) => {
                     </div>
                   </div>
                 </div>
-                <div className="ml-auto overflow-hidden rounded-lg">
+                <div className=" my-5 overflow-hidden rounded-lg">
                   <div className="relative overflow-hidden w-[650px] h-[370px]">
                     <img src={camera.imageUrl} width={700} />
                     <div
