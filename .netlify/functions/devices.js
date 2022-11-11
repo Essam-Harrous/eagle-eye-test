@@ -22,13 +22,17 @@ exports.handler = async (event, context) => {
     console.log(cameras, "ressssss");
     let result = [];
 
-    const headers = new Headers();
-    headers.set("Authorization", `bearer ${body.token}`);
+    // const headers = new Headers();
+    // headers.set("Authorization", `bearer ${body.token}`);
 
     for (let i = 0; i < cameras.length && camerasStatus.length; i++) {
       let snapshot = await fetch(
         `http://rest.cameramanager.com/rest/v2.4/cameras/${cameras[i].cameraId}/snapshot?resolution=1000x100&includeTimestamp=false`,
-        { headers }
+        {
+          headers: {
+            Authorization: `bearer ${body.token}`,
+          },
+        }
       );
 
       // Convert the data to Base64 and build a data URL.
