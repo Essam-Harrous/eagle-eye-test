@@ -20,7 +20,7 @@ export const signIn = (email, password, callback) => async (dispatch) => {
     localStorage.setItem("refresh-token", response.data.refresh_token);
     console.log(response.data, "response");
     dispatch({ type: SIGN_IN, payload: { token: response.data.access_token } });
-    history.go("/dashboard");
+    history.replace("/dashboard");
     toast("Login Success", {
       style: {
         color: "green",
@@ -69,7 +69,7 @@ export const logOut = () => (dispatch) => {
   try {
     localStorage.removeItem("token");
     dispatch({ type: LOG_OUT });
-    history.go("/signin");
+    history.replace("/signin");
   } catch (err) {
     console.log(err);
   }
