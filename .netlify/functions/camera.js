@@ -1,4 +1,5 @@
 const { default: axios } = require("../../src/api/axios");
+const fetch = require("node-fetch");
 
 exports.handler = async (event, context) => {
   console.log("get devices", JSON.parse(event.body));
